@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="_3___App_Memorable_Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ipc-U9-OYX">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="My Places" id="pIO-Im-zMm">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="STa-De-KXE">
+                                            <connections>
+                                                <action selector="buttonErase:" destination="vXZ-lx-hvc" id="DA2-Kv-oCH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HkG-hs-pWd">
+                                            <connections>
+                                                <segue destination="uZW-CQ-yz3" kind="showDetail" identifier="segueGoMapViewController" id="LFD-P5-v68"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-hR-5re">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ZFc-V3-sRC">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZFc-V3-sRC" id="qaU-in-Eoj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="eSe-l6-A21"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="3Pu-Km-tLk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qQg-hR-5re" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3qr-Ye-WkG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ipc-U9-OYX" secondAttribute="trailing" id="EaK-ax-3f9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qQg-hR-5re" secondAttribute="bottom" id="JAw-w0-khm"/>
+                            <constraint firstItem="Ipc-U9-OYX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="JC2-75-7JE"/>
+                            <constraint firstItem="qQg-hR-5re" firstAttribute="top" secondItem="Ipc-U9-OYX" secondAttribute="bottom" id="fW2-RU-XKb"/>
+                            <constraint firstAttribute="trailing" secondItem="qQg-hR-5re" secondAttribute="trailing" id="oEZ-zk-08e"/>
+                            <constraint firstItem="Ipc-U9-OYX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vUN-wI-haG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="qQg-hR-5re" id="SzL-VS-fPx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="450" y="644"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="lCm-Uh-Nb6">
+            <objects>
+                <viewController id="uZW-CQ-yz3" customClass="MapViewController" customModule="_3___App_Memorable_Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yXe-Mw-9mo"/>
+                        <viewControllerLayoutGuide type="bottom" id="QEl-NA-nGq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cns-sl-GH2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFX-EQ-7Lu">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="My Map" id="Ytb-Oh-oI4">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="NeI-Lc-Rvm">
+                                            <connections>
+                                                <action selector="buttonBack:" destination="uZW-CQ-yz3" id="Hb1-2G-LZx"/>
+                                                <segue destination="qnE-AL-Fut" kind="unwind" unwindAction="unwindMapViewController:" id="JYG-Fl-B4W"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Find Me" id="0Mm-b8-OyS">
+                                            <connections>
+                                                <action selector="buttonFindMe:" destination="uZW-CQ-yz3" id="vVy-bx-kdk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-WG-INM">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                            </mapView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGh-Dm-g5k">
+                                <rect key="frame" x="489" y="92" width="111" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2SU-q3-Sch"/>
+                                    <constraint firstAttribute="width" constant="111" id="uWy-IN-Pag"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Center ON">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonCenter:" destination="uZW-CQ-yz3" eventType="touchUpInside" id="joP-pG-ldc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xNK-WG-INM" secondAttribute="trailing" id="FIA-Gh-MrV"/>
+                            <constraint firstItem="QEl-NA-nGq" firstAttribute="top" secondItem="xNK-WG-INM" secondAttribute="bottom" id="JKR-gg-RVD"/>
+                            <constraint firstAttribute="trailing" secondItem="iFX-EQ-7Lu" secondAttribute="trailing" id="JUk-zH-0Yz"/>
+                            <constraint firstItem="xNK-WG-INM" firstAttribute="leading" secondItem="Cns-sl-GH2" secondAttribute="leading" id="QHH-Og-tm2"/>
+                            <constraint firstItem="xNK-WG-INM" firstAttribute="top" secondItem="GGh-Dm-g5k" secondAttribute="top" constant="-20" id="WdP-0j-0na"/>
+                            <constraint firstItem="xNK-WG-INM" firstAttribute="top" secondItem="iFX-EQ-7Lu" secondAttribute="bottom" id="XZs-uE-KMO"/>
+                            <constraint firstItem="iFX-EQ-7Lu" firstAttribute="leading" secondItem="Cns-sl-GH2" secondAttribute="leading" id="huJ-KE-P8o"/>
+                            <constraint firstItem="iFX-EQ-7Lu" firstAttribute="top" secondItem="yXe-Mw-9mo" secondAttribute="bottom" constant="8" id="oFa-A8-MW0"/>
+                            <constraint firstItem="xNK-WG-INM" firstAttribute="trailing" secondItem="GGh-Dm-g5k" secondAttribute="trailing" id="yUO-pd-zlM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="xNK-WG-INM" id="8fw-2s-d80"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9uR-nm-Axk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qnE-AL-Fut" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="644"/>
+        </scene>
+    </scenes>
+</document>
